@@ -1,12 +1,17 @@
 package com.starsolns.pets.views.ui.fragments
 
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
+import androidx.palette.graphics.Palette
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.starsolns.pets.R
 import com.starsolns.pets.databinding.FragmentDetailBinding
 
@@ -29,7 +34,31 @@ class DetailFragment : Fragment() {
         binding.detailPetName.text = currentPet.name
         binding.detailPetDescription.text = currentPet.description
 
+        currentPet.imageUrl?.let {
+            setLayoutBackGround(it)
+        }
+
         return binding.root
+    }
+
+    private fun setLayoutBackGround(url: String?) {
+        Glide.with(this)
+            .asBitmap()
+            .load(url)
+            .into(object: CustomTarget<Bitmap>(){
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                   Palette.from(resource)
+                       .generate(){
+                           val color = it?.lightMutedSwatch?.rgb ?: 0
+                           binding.detailLayout.setBackgroundColor(color)
+                       }
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+
+                }
+
+            })
     }
 
     override fun onDestroyView() {

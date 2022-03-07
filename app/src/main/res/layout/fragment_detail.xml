@@ -5,13 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/detail_layout"
     tools:context=".views.ui.fragments.DetailFragment">
 
     <ImageView
         android:layout_width="0dp"
         android:layout_height="200dp"
-        app:layout_constraintStart_toStartOf="@id/detail_guide1"
-        app:layout_constraintEnd_toEndOf="@id/detail_guide2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="5dp"
         android:id="@+id/detail_pet_image"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="10dp"
@@ -64,12 +67,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.10"/>
+        app:layout_constraintGuide_percent="0.03"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/detail_guide2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.90"/>
+        app:layout_constraintGuide_percent="0.97"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
