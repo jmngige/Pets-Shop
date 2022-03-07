@@ -38,7 +38,13 @@ class ListFragment : Fragment() {
             adapter.notifyDataSetChanged()
         })
 
-        adapter = PetsAdapter(requireActivity(),petsList)
+        adapter = PetsAdapter(requireActivity(),petsList, object: PetsAdapter.ItemClickListener{
+            override fun onItemClick(pet: Pet) {
+                val action = ListFragmentDirections.actionListFragmentToDetailFragment(pet)
+                findNavController().navigate(action)
+            }
+
+        })
         binding.petsList.layoutManager = LinearLayoutManager(requireActivity())
         binding.petsList.adapter = adapter
 

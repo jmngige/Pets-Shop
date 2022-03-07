@@ -17,10 +17,14 @@ import com.starsolns.pets.views.ui.fragments.ListFragmentDirections
 
 class PetsAdapter(
     private val context: Context,
-    private val petsList: List<Pet>
+    private val petsList: List<Pet>,
+    private val itemClickListener: ItemClickListener
 ) :
     RecyclerView.Adapter<PetsAdapter.ViewHolder>() {
 
+    interface ItemClickListener {
+        fun onItemClick(pet: Pet)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -33,10 +37,10 @@ class PetsAdapter(
         holder.bind(currentPet)
         Glide.with(context).load(currentPet.imageUrl).placeholder(R.drawable.image_animation)
             .into(holder.image)
-        holder.petItem.setOnClickListener {
-            val action = ListFragmentDirections.actionListFragmentToDetailFragment(currentPet)
-            Navigation.findNavController(holder.itemView).navigate(action)
-        }
+//        holder.petItem.setOnClickListener {
+//            val action = ListFragmentDirections.actionListFragmentToDetailFragment(currentPet)
+//            Navigation.findNavController(holder.itemView).navigate(action)
+//        }
     }
 
     override fun getItemCount() = petsList.size
@@ -51,6 +55,9 @@ class PetsAdapter(
         fun bind(pet: Pet) {
             name.text = pet.name
             description.text = pet.description
+            itemView.setOnClickListener {
+                itemClickListener.onItemClick(pet)
+            }
         }
 
     }
