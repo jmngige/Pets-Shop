@@ -14,8 +14,11 @@ import io.reactivex.schedulers.Schedulers
 class MainViewModel: ViewModel() {
 
     val pets = MutableLiveData<List<Pet>>()
+     val isLoading = MutableLiveData<Boolean>()
+     val isError = MutableLiveData<Boolean>()
     private val disposable = CompositeDisposable()
     private val apiService = RetrofitInstance()
+
 
 
     fun getPets(){
@@ -25,11 +28,15 @@ class MainViewModel: ViewModel() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object: DisposableSingleObserver<List<Pet>>(){
                     override fun onSuccess(petsList: List<Pet>) {
+                        isLoading.value = true
+                        isError.value = false
                         pets.value = petsList
+                        isLoading.value = false
                     }
 
                     override fun onError(e: Throwable) {
-
+                        isLoading.value = false
+                        isError.value = true
                     }
 
                 })

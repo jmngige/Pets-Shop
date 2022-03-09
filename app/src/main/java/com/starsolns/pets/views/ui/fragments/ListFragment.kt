@@ -38,6 +38,14 @@ class ListFragment : Fragment() {
             adapter.notifyDataSetChanged()
         })
 
+        viewModel.isLoading.observe(requireActivity(), Observer { isLoading->
+            binding.loadingData.visibility = if(isLoading) View.VISIBLE else View.INVISIBLE
+        })
+
+        viewModel.isError.observe(requireActivity(), Observer { isError->
+            binding.errorMessage.visibility = if (isError) View.VISIBLE else View.INVISIBLE
+        })
+
         adapter = PetsAdapter(requireActivity(),petsList, object: PetsAdapter.ItemClickListener{
             override fun onItemClick(pet: Pet) {
                 val action = ListFragmentDirections.actionListFragmentToDetailFragment(pet)
