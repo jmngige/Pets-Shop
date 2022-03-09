@@ -7,13 +7,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.starsolns.pets.R
-import com.starsolns.pets.views.Pet
-import com.starsolns.pets.views.ui.fragments.ListFragmentDirections
+import com.starsolns.pets.views.model.Pet
 
 class PetsAdapter(
     private val context: Context,

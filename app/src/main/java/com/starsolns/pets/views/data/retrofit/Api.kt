@@ -1,6 +1,6 @@
-package com.starsolns.pets.views.retrofit
+package com.starsolns.pets.views.data.retrofit
 
-import com.starsolns.pets.views.Pet
+import com.starsolns.pets.views.model.Pet
 import io.reactivex.Single
 import retrofit2.http.GET
 

@@ -10,9 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.starsolns.pets.R
 import com.starsolns.pets.databinding.FragmentListBinding
-import com.starsolns.pets.views.Pet
+import com.starsolns.pets.views.model.Pet
 import com.starsolns.pets.views.ui.adapters.PetsAdapter
 import com.starsolns.pets.views.viewmodel.MainViewModel
 

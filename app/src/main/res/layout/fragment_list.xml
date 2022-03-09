@@ -29,7 +29,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,6 +40,7 @@
             android:layout_marginEnd="30dp"
             android:textAlignment="center"
             android:layout_marginTop="8dp"
+            android:visibility="gone"
             android:text="Error occured. Please check your internet connection and try again."
             app:layout_constraintTop_toBottomOf="@+id/loading_data"
             app:layout_constraintEnd_toEndOf="parent"

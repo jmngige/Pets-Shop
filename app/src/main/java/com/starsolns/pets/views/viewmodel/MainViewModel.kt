@@ -1,17 +1,20 @@
 package com.starsolns.pets.views.viewmodel
 
-import androidx.lifecycle.LiveData
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.starsolns.pets.views.Pet
-import com.starsolns.pets.views.retrofit.Api
-import com.starsolns.pets.views.retrofit.RetrofitInstance
+import androidx.lifecycle.viewModelScope
+import com.starsolns.pets.views.model.Pet
+import com.starsolns.pets.views.data.retrofit.RetrofitInstance
+import com.starsolns.pets.views.data.room.PetsDatabase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.launch
 
-class MainViewModel: ViewModel() {
+class MainViewModel(application: Application): AndroidViewModel(application)  {
 
     val pets = MutableLiveData<List<Pet>>()
      val isLoading = MutableLiveData<Boolean>()
@@ -28,10 +31,7 @@ class MainViewModel: ViewModel() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object: DisposableSingleObserver<List<Pet>>(){
                     override fun onSuccess(petsList: List<Pet>) {
-                        isLoading.value = true
-                        isError.value = false
-                        pets.value = petsList
-                        isLoading.value = false
+                       storeInRoom(petsList)
                     }
 
                     override fun onError(e: Throwable) {
@@ -42,6 +42,27 @@ class MainViewModel: ViewModel() {
                 })
         )
 
+    }
+
+    private fun storeInRoom(petsList: List<Pet>) {
+        val dao = PetsDatabase.getDatabase(getApplication()).petDao()
+        viewModelScope.launch {
+            dao.delete()
+            val res = dao.insert(*petsList.toTypedArray())
+            var i = 0
+            while ( i < petsList.size){
+                petsList[i].uuid = res[i].toInt()
+            }
+
+            petsRetrieved(petsList)
+        }
+    }
+
+    private fun petsRetrieved(petsList: List<Pet>){
+        isLoading.value = true
+        isError.value = false
+        pets.value = petsList
+        isLoading.value = false
     }
 
     override fun onCleared() {
