@@ -31,7 +31,8 @@ class MainViewModel(application: Application): AndroidViewModel(application)  {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object: DisposableSingleObserver<List<Pet>>(){
                     override fun onSuccess(petsList: List<Pet>) {
-                       storeInRoom(petsList)
+                       //storeInRoom(petsList)
+                        petsRetrieved(petsList)
                     }
 
                     override fun onError(e: Throwable) {
@@ -51,7 +52,7 @@ class MainViewModel(application: Application): AndroidViewModel(application)  {
             val res = dao.insert(*petsList.toTypedArray())
             var i = 0
             while ( i < petsList.size){
-                petsList[i].uuid = res[i].toInt()
+                //petsList[i].uuid = res[i].toInt()
             }
 
             petsRetrieved(petsList)

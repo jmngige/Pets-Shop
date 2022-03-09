@@ -12,7 +12,7 @@ interface PetDao {
     @Insert
     suspend fun insert(vararg pet: Pet) : List<Long>
 
-    @Query("SELECT * FROM pets_table WHERE uuid LIKE :petId")
+    @Query("SELECT * FROM pets_table WHERE id LIKE :petId")
     suspend fun getPet(petId: Int): Pet
 
     @Query("DELETE FROM pets_table")

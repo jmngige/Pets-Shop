@@ -1,4 +1,4 @@
-package com.starsolns.pets.views
+package com.starsolns.pets.views.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

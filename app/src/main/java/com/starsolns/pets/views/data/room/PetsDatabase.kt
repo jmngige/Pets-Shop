@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.starsolns.pets.views.model.Pet
 
-@Database(entities = [Pet::class], version = 1)
+@Database(entities = [Pet::class], version = 1, exportSchema = false)
 abstract class PetsDatabase: RoomDatabase() {
 
     abstract fun petDao(): PetDao

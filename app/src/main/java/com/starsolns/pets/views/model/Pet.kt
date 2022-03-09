@@ -8,6 +8,7 @@ import java.io.Serializable
 
 @Entity(tableName = "pets_table")
 data class Pet(
+    @PrimaryKey()
     val id: Int,
     val name: String?,
     @SerializedName("bred_for")
@@ -23,7 +24,4 @@ data class Pet(
     @SerializedName("url")
     @ColumnInfo(name = "image_url")
     val imageUrl: String?,
-    @ColumnInfo(name = "uuid")
-    @PrimaryKey(autoGenerate = true)
-    var uuid: Int = 0
 ): Serializable

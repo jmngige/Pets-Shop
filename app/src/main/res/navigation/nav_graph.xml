@@ -27,6 +27,7 @@
             app:popUpTo="@id/listFragment" />
         <argument
             android:name="currentPet"
-            app:argType="com.starsolns.pets.views.Pet" />
+            app:argType="com.starsolns.pets.views.model.Pet" />
+
     </fragment>
 </navigation>

@@ -34,8 +34,8 @@ class DetailFragment : Fragment() {
         binding.detailPetName.text = currentPet.name
         binding.detailPetDescription.text = currentPet.description
 
-        currentPet.imageUrl?.let {
-            setLayoutBackGround(it)
+        currentPet.imageUrl?.let {url->
+            setLayoutBackGround(url)
         }
 
         return binding.root
