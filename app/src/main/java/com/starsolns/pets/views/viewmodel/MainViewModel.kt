@@ -1,10 +1,12 @@
 package com.starsolns.pets.views.viewmodel
 
 import android.app.Application
+import android.content.SharedPreferences
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.preference.PreferenceManager
 import com.starsolns.pets.views.model.Pet
 import com.starsolns.pets.views.data.retrofit.RetrofitInstance
 import com.starsolns.pets.views.data.room.PetsDatabase
@@ -23,6 +25,8 @@ class MainViewModel(application: Application): AndroidViewModel(application)  {
     private val disposable = CompositeDisposable()
     private val apiService = RetrofitInstance()
 
+    private val pref = PreferenceManager.getDefaultSharedPreferences(getApplication())
+    private var notify = pref.getBoolean("notifications",true)
 
 
     fun getPets(){
@@ -34,7 +38,9 @@ class MainViewModel(application: Application): AndroidViewModel(application)  {
                     override fun onSuccess(petsList: List<Pet>) {
                        //storeInRoom(petsList)
                         petsRetrieved(petsList)
-                        NotificationHelper(getApplication()).createNotification()
+                       if (notify){
+                           NotificationHelper(getApplication()).createNotification()
+                       }
                     }
 
                     override fun onError(e: Throwable) {
