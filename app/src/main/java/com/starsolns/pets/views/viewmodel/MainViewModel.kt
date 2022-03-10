@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.starsolns.pets.views.model.Pet
 import com.starsolns.pets.views.data.retrofit.RetrofitInstance
 import com.starsolns.pets.views.data.room.PetsDatabase
+import com.starsolns.pets.views.util.NotificationHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
@@ -33,6 +34,7 @@ class MainViewModel(application: Application): AndroidViewModel(application)  {
                     override fun onSuccess(petsList: List<Pet>) {
                        //storeInRoom(petsList)
                         petsRetrieved(petsList)
+                        NotificationHelper(getApplication()).createNotification()
                     }
 
                     override fun onError(e: Throwable) {

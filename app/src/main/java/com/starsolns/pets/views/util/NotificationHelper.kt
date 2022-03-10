@@ -34,6 +34,7 @@ class NotificationHelper(val context: Context) {
         }
     }
 
+    //2. Create the notification
     //Define the notification specifics
     fun createNotification(){
         var intent = Intent(context, MainActivity::class.java)
