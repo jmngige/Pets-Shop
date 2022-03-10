@@ -7,7 +7,9 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.media.RingtoneManager
 import android.os.Build
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.starsolns.pets.R
@@ -31,6 +33,17 @@ class NotificationHelper(val context: Context) {
             }
             val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
+        }
+
+    }
+
+    private fun playNotificationSound() {
+        try {
+            val defaultSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+            val ringtone = RingtoneManager.getRingtone(context, defaultSound)
+            ringtone.play()
+        } catch (e: Exception) {
+            Toast.makeText(context, "Unable to play sound", Toast.LENGTH_LONG).show()
         }
     }
 

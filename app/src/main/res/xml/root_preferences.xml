@@ -6,7 +6,6 @@
         <SwitchPreferenceCompat
             app:key="notifications"
             app:title="Notification"
-            app:defaultValue="true"
             app:summaryOn="Disable notifications"
             app:summaryOff="Enable Notifications"
             android:summary="Show notifications"/>
