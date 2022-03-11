@@ -27,7 +27,7 @@ class MainViewModel(application: Application): AndroidViewModel(application)  {
     private val apiService = RetrofitInstance()
 
     private val pref: SharedPreferences? = application.getSharedPreferences("notify_pref", Context.MODE_PRIVATE)
-    private val notify = pref?.getBoolean("notifications", true)
+    private val notify = pref?.getBoolean("notifications_id", true)
 
     fun getPets(){
         disposable.add(

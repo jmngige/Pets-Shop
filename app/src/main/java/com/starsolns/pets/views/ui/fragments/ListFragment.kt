@@ -1,7 +1,10 @@
 package com.starsolns.pets.views.ui.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +12,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.starsolns.pets.databinding.FragmentListBinding
 import com.starsolns.pets.views.model.Pet
@@ -67,6 +71,21 @@ class ListFragment : Fragment() {
        }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val sp = PreferenceManager.getDefaultSharedPreferences(requireContext())
+        val notified = sp.getBoolean("notifications", true)
+
+
+        val pref: SharedPreferences? = context?.getSharedPreferences("notify_pref", Context.MODE_PRIVATE)
+        val editor = pref?.edit()
+
+        editor?.putBoolean("notifications_id", notified)
+        editor?.apply()
+
     }
 
     override fun onDestroyView() {
