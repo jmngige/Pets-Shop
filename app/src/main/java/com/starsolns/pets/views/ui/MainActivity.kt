@@ -38,4 +38,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
+
+    private fun loadPermissions(){
+
+    }
 }

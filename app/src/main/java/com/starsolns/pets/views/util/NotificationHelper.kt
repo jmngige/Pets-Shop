@@ -75,4 +75,11 @@ class NotificationHelper(val context: Context) {
 
     }
 
+    fun deleteNotification(){
+        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationManager.deleteNotificationChannel(CHANNEL_ID)
+        }
+    }
+
 }

@@ -80,6 +80,9 @@ dependencies {
     //palette dep
     implementation "androidx.palette:palette-ktx:1.0.0"
 
+    //permissions dep
+    implementation 'com.vmadalin:easypermissions-ktx:1.0.0'
+
     //dagger dep
     implementation 'com.google.dagger:dagger:2.40.5'
     implementation 'com.google.dagger:dagger-android-support:2.40.5'

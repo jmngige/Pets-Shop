@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Pets</string>
+    <string name="error_message"><u> Error occurred. </u>  \nCheck your internet connection \nand try again.</string>
+    <string name="pet_name">Pet One</string>
+    <string name="pet_breed">Animalia</string>
+    <string name="pet_description">Wild, Security, playful and loyal</string>
+    <string name="list_pet_name">Pet Name</string>
+    <string name="list_pet_description">Wild, fast, loyal and palyful</string>
+    <string name="notification_off_summary">Disable notifications</string>
+    <string name="notification_on_summary">Enable Notifications</string>
+    <string name="notification_title">Notification</string>
 </resources>

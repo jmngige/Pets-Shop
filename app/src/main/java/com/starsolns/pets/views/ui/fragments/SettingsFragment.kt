@@ -17,6 +17,5 @@ class SettingsFragment : PreferenceFragmentCompat() {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
         setHasOptionsMenu(false)
 
-
     }
 }

@@ -26,7 +26,7 @@
         app:layout_constraintStart_toStartOf="@id/detail_guide1"
         app:layout_constraintEnd_toEndOf="@id/detail_guide2"
         android:layout_marginStart="10dp"
-        android:text="Pet One"
+        android:text="@string/pet_name"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/detail_pet_image"
         android:layout_marginTop="20dp"
@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="@id/detail_guide2"
         android:layout_marginStart="10dp"
         android:textSize="17sp"
-        android:text="Animalia"
+        android:text="@string/pet_breed"
         android:textColor="#131313"/>
 
     <TextView
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="@id/detail_guide2"
         android:layout_marginStart="10dp"
         android:textSize="17sp"
-        android:text="Wild, Security, playful and loyal"
+        android:text="@string/pet_description"
         android:textColor="#131313"/>
 
 

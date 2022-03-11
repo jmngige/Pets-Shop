@@ -1,14 +1,14 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <PreferenceCategory app:title="Notifications" app:icon="@drawable/ic_notifications">
 
         <SwitchPreferenceCompat
             app:key="notifications"
-            app:title="Notification"
-            app:summaryOn="Disable notifications"
-            app:summaryOff="Enable Notifications"
-            android:summary="Show notifications"/>
+            app:title="@string/notification_title"
+            app:summaryOn="@string/notification_off_summary"
+            app:summaryOff="@string/notification_on_summary"/>
 
         <SeekBarPreference
             app:key="notification_volume"
