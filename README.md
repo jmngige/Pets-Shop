@@ -2,7 +2,6 @@
 Consuming a restapi data with retrofit and rxjava to display diffrent breeds of animals
 
 
-### .1
 #### Installing the application
 On installing the application requests some permissions to be allowed on the device
 
@@ -23,7 +22,7 @@ On clicking a single pet item on the screen, The app navigates to the details of
 The app also has a menu options on the actionbar for implementing settings
 The settings property is implemented using the Jetpack Preference Setting library
 
-<img src="https://user-images.githubusercontent.com/83232248/158147640-8efef363-abd0-41ed-9884-28c97bbe17d3.png" width="250" height="400" /> &nbsp; &nbsp; &nbsp; &nbsp; !<img src="https://user-images.githubusercontent.com/83232248/158147837-1bea0c95-088d-4d1f-848a-5ae7702364ef.png" width="250" height="400" />
+<img src="https://user-images.githubusercontent.com/83232248/158147640-8efef363-abd0-41ed-9884-28c97bbe17d3.png" width="250" height="400" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/83232248/158147837-1bea0c95-088d-4d1f-848a-5ae7702364ef.png" width="250" height="400" />
 
 The Enable and disable notifications and the Enable and Disable Switches in the settings layout define the status of each respectively
 The switch toggle button on the Night mode enables and disable night mode in the application as shown in the images below
@@ -38,11 +37,12 @@ The switch toggle button on the Night mode enables and disable night mode in the
 1. Kotlin
 2. Retrofit
 3. RxJava
-4. MVVM
-5. Jetpack Components
-6. Permissions
-7. Notifications
-8. UIModeManager 
+4. Room
+5. MVVM
+6. Jetpack Components
+7. Permissions
+8. Notifications
+9. UIModeManager 
 
 
 
