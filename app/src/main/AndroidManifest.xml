@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppLightTheme">
+        android:theme="@style/Theme.Pets">
         <activity
             android:name=".views.ui.SettingsActivity"
             android:exported="false" />
