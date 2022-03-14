@@ -13,6 +13,7 @@ On installing the application requests some permissions to be allowed on the dev
 Once all the data is loaded, all the dog items are displayed on a recyclerview
 
 <img src="https://user-images.githubusercontent.com/83232248/158146986-e23c4969-99d2-44dd-9cd7-1f12480f9788.png" width="250" height="400" />
+
 #### OnClick
 On clicking a single pet item on the screen, The app navigates to the details of the specific dog item clicked and displays a few details
 
@@ -30,7 +31,6 @@ The switch toggle button on the Night mode enables and disable night mode in the
 <img src="https://user-images.githubusercontent.com/83232248/158148273-6e4952d1-1f30-4e00-8835-0a4cf535e619.png" width="200" height="400" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/83232248/158148379-2fe849c9-cea2-4c63-b117-96fe435ef2fc.png" width="250" height="400" />
 
 <img src="https://user-images.githubusercontent.com/83232248/158148547-fd42091a-693b-44e6-b6ff-f1387f3756b4.png" width="200" height="400"/> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/83232248/158148691-0fcd34fe-981d-47b5-ac0c-1749b2126abe.png" width="250" height="400" />
-
 
 
 ## Tools and Features
