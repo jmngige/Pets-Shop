@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.palette.graphics.Palette
 import com.bumptech.glide.Glide
@@ -14,12 +15,15 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.starsolns.pets.R
 import com.starsolns.pets.databinding.FragmentDetailBinding
+import com.starsolns.pets.views.viewmodel.PetsRoomViewModel
 
 class DetailFragment : Fragment() {
 
     private val args : DetailFragmentArgs by navArgs()
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var roomViewModel: PetsRoomViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +33,10 @@ class DetailFragment : Fragment() {
         _binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
 
         val currentPet = args.currentPet
+
+        roomViewModel = ViewModelProvider(this)[PetsRoomViewModel::class.java]
+
+        roomViewModel.insert(currentPet)
 
         Glide.with(this).load(currentPet.imageUrl).placeholder(R.drawable.image_animation).into(binding.detailPetImage)
         binding.detailPetName.text = currentPet.name
