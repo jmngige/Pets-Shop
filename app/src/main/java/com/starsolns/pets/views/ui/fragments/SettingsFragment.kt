@@ -17,13 +17,13 @@ import com.starsolns.pets.R
 
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
-            setHasOptionsMenu(false)
 
         }
 
         override fun onPreferenceTreeClick(preference: Preference): Boolean {
+
             val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
-            val enabled = pref.getBoolean("daynightmode",false)
+            val enabled = pref.getBoolean("daynightmode", false)
 
             return if (enabled){
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)

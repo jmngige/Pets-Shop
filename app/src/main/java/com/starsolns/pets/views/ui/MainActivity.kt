@@ -19,9 +19,20 @@ import com.starsolns.pets.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
-    private lateinit var uiModeManager: UiModeManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val pref = PreferenceManager.getDefaultSharedPreferences(this)
+        val enabled = pref.getBoolean("daynightmode", false)
+
+       if (enabled){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            true
+        }else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            true
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

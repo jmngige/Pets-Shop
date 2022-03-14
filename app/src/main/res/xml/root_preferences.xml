@@ -42,7 +42,6 @@
         <SwitchPreferenceCompat
             app:key="daynightmode"
             android:title="Night mode"
-            app:defaultValue="false"
             android:summary="Enable night mode"/>
 
         <Preference

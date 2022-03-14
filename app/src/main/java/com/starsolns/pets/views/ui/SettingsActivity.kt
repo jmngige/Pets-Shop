@@ -1,6 +1,7 @@
 package com.starsolns.pets.views.ui
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.Preference
@@ -12,8 +13,13 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+
         supportFragmentManager.beginTransaction()
             .replace(R.id.settings_container, SettingsFragment())
             .commit()
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        return false
     }
 }
