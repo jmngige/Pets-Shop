@@ -21,7 +21,6 @@
     <PreferenceCategory app:title="Sync" app:icon="@drawable/ic_sync">
 
 
-
         <SwitchPreferenceCompat
             app:key="sync"
             app:summary="Sync information periodically"
@@ -39,6 +38,12 @@
     </PreferenceCategory>
 
     <PreferenceCategory app:title="About" app:icon="@drawable/ic_about">
+
+        <SwitchPreferenceCompat
+            app:key="daynightmode"
+            android:title="Night mode"
+            app:defaultValue="false"
+            android:summary="Enable night mode"/>
 
         <Preference
             app:key="signature"

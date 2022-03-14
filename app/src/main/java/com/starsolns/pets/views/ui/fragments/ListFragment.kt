@@ -62,30 +62,13 @@ class ListFragment : Fragment() {
         viewModel.getPets()
 
        binding.swipeToRefresh.setOnRefreshListener {
-           binding.petsList.visibility = View.GONE
           Handler().postDelayed({
-              binding.petsList.visibility = View.VISIBLE
               viewModel.getPets()
               binding.swipeToRefresh.isRefreshing = false
           }, 3000)
        }
 
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val sp = PreferenceManager.getDefaultSharedPreferences(requireContext())
-        val notified = sp.getBoolean("notifications", true)
-
-
-        val pref: SharedPreferences? = context?.getSharedPreferences("notify_pref", Context.MODE_PRIVATE)
-        val editor = pref?.edit()
-
-        editor?.putBoolean("notifications_id", notified)
-        editor?.apply()
-
     }
 
     override fun onDestroyView() {

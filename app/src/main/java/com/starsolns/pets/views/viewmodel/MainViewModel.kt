@@ -25,9 +25,7 @@ class MainViewModel(application: Application): AndroidViewModel(application)  {
      val isError = MutableLiveData<Boolean>()
     private val disposable = CompositeDisposable()
     private val apiService = RetrofitInstance()
-
-//    private val pref: SharedPreferences? = application.getSharedPreferences("notify_pref", Context.MODE_PRIVATE)
-//    private val notify = pref?.getBoolean("notifications_id", true)
+    
 
     private val pref = PreferenceManager.getDefaultSharedPreferences(application)
     private val notify = pref.getBoolean("notifications", false)
