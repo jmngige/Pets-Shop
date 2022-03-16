@@ -33,7 +33,7 @@ The switch toggle button on the Night mode enables and disable night mode in the
 <img src="https://user-images.githubusercontent.com/83232248/158148547-fd42091a-693b-44e6-b6ff-f1387f3756b4.png" width="200" height="400"/> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/83232248/158148691-0fcd34fe-981d-47b5-ac0c-1749b2126abe.png" width="250" height="400" />
 
 
-## Tools and Features
+## Tools and Technologies
 1. Kotlin
 2. Retrofit
 3. RxJava
